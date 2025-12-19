@@ -15,11 +15,11 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 glass-card border-b border-border/50">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 shadow-sm">
       <div className="container-custom">
         <div className="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
-          <a href="#home" className="text-xl font-bold text-gradient">
-            SM
+          <a href="#home" className="text-xl font-bold text-hero-text">
+            Brand
           </a>
 
           {/* Desktop Navigation */}
@@ -28,7 +28,7 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm font-medium"
+                className="text-hero-muted hover:text-accent transition-colors duration-300 text-sm font-medium"
               >
                 {link.name}
               </a>
@@ -36,14 +36,18 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:block">
-            <Button variant="hero" size="sm" asChild>
-              <a href="#contact">Hire Me</a>
+            <Button 
+              size="sm" 
+              className="bg-accent hover:bg-accent/90 text-white rounded-full px-6 shadow-lg shadow-accent/30"
+              asChild
+            >
+              <a href="/resume.pdf" download>Download CV</a>
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-foreground"
+            className="md:hidden text-hero-text"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -52,21 +56,24 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden border-t border-border/50 animate-fade-up">
+          <div className="md:hidden border-t border-gray-100 bg-white animate-fade-up">
             <div className="px-4 py-4 space-y-3">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="block text-muted-foreground hover:text-primary transition-colors duration-300 py-2"
+                  className="block text-hero-muted hover:text-accent transition-colors duration-300 py-2"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}
                 </a>
               ))}
-              <Button variant="hero" className="w-full mt-4" asChild>
-                <a href="#contact" onClick={() => setIsOpen(false)}>
-                  Hire Me
+              <Button 
+                className="w-full mt-4 bg-accent hover:bg-accent/90 text-white rounded-full" 
+                asChild
+              >
+                <a href="/resume.pdf" download onClick={() => setIsOpen(false)}>
+                  Download CV
                 </a>
               </Button>
             </div>

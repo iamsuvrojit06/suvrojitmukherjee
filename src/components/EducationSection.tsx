@@ -1,4 +1,4 @@
-import { GraduationCap, Calendar } from "lucide-react";
+import { GraduationCap, Calendar, Briefcase, Lightbulb, TrendingUp } from "lucide-react";
 
 const education = [
   {
@@ -25,88 +25,95 @@ const education = [
     period: "2020 – 2022",
     current: false,
   },
-  {
-    degree: "Class X (WBBSE)",
-    institution: "Kalna Ambika Mahismardini High School",
-    period: "2015 – 2020",
-    current: false,
-  },
+];
+
+const processSteps = [
+  { icon: Briefcase, title: "Business Planning", description: "Understanding requirements and project scope" },
+  { icon: Lightbulb, title: "Design Strategy", description: "Creating efficient solutions and architecture" },
+  { icon: TrendingUp, title: "Grow Your Skills", description: "Continuous learning and improvement" },
 ];
 
 const EducationSection = () => {
   return (
-    <section id="education" className="section-padding">
-      <div className="container-custom">
+    <section id="education" className="section-padding bg-white relative overflow-hidden">
+      {/* Decorative Elements */}
+      <div className="absolute top-20 right-20 opacity-20">
+        <svg width="100" height="100" viewBox="0 0 100 100">
+          <polygon points="50,0 100,100 0,100" fill="none" stroke="currentColor" strokeWidth="2" className="text-accent" />
+        </svg>
+      </div>
+      
+      <div className="container-custom relative z-10">
+        {/* Process Section */}
+        <div className="text-center mb-16">
+          <span className="text-accent text-sm font-medium tracking-wider uppercase">
+            Process
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-bold mt-2 mb-4 text-hero-text">
+            My Working Process
+          </h2>
+          
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8 mt-12">
+            {processSteps.map((step, index) => (
+              <div key={step.title} className="flex flex-col items-center text-center">
+                <div className="w-16 h-16 rounded-2xl bg-accent/10 flex items-center justify-center mb-4 hover:bg-accent hover:text-white transition-all duration-300 group">
+                  <step.icon className="w-8 h-8 text-accent group-hover:text-white transition-colors" />
+                </div>
+                <h3 className="font-semibold text-hero-text mb-1">{step.title}</h3>
+                <p className="text-sm text-hero-muted max-w-[200px]">{step.description}</p>
+                {index < processSteps.length - 1 && (
+                  <div className="hidden md:block absolute">
+                    <svg className="w-20 h-4 text-gray-300" viewBox="0 0 80 16">
+                      <path d="M0 8 L70 8 M60 2 L70 8 L60 14" fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="4 4" />
+                    </svg>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Education Timeline */}
         <div className="text-center mb-12">
-          <span className="text-primary text-sm font-medium tracking-wider uppercase">
+          <span className="text-accent text-sm font-medium tracking-wider uppercase">
             Education
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold mt-2 mb-4">
-            Academic <span className="text-gradient">Journey</span>
+          <h2 className="text-3xl sm:text-4xl font-bold mt-2 mb-4 text-hero-text">
+            Academic Journey
           </h2>
         </div>
 
         <div className="max-w-3xl mx-auto">
-          <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-border md:-translate-x-0.5" />
-
-            {education.map((edu, index) => (
+          <div className="space-y-4">
+            {education.map((edu) => (
               <div
                 key={edu.degree}
-                className={`relative flex flex-col md:flex-row gap-4 md:gap-8 mb-8 ${
-                  index % 2 === 0 ? "md:flex-row-reverse" : ""
+                className={`bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 border border-gray-100 ${
+                  edu.current ? 'border-l-4 border-l-accent' : ''
                 }`}
               >
-                {/* Timeline Dot */}
-                <div className="absolute left-4 md:left-1/2 w-3 h-3 rounded-full bg-primary -translate-x-1.5 md:-translate-x-1.5 top-6 z-10">
-                  {edu.current && (
-                    <div className="absolute inset-0 rounded-full bg-primary animate-ping opacity-50" />
-                  )}
-                </div>
-
-                {/* Content Card */}
-                <div
-                  className={`flex-1 ml-10 md:ml-0 ${
-                    index % 2 === 0 ? "md:text-right md:pr-12" : "md:pl-12"
-                  }`}
-                >
-                  <div
-                    className={`glass-card rounded-xl p-6 hover:border-primary/30 transition-all duration-300 inline-block w-full ${
-                      edu.current ? "border-primary/30 glow" : ""
-                    }`}
-                  >
-                    <div
-                      className={`flex items-center gap-2 mb-2 ${
-                        index % 2 === 0 ? "md:justify-end" : ""
-                      }`}
-                    >
-                      <GraduationCap className="w-5 h-5 text-primary" />
-                      {edu.current && (
-                        <span className="text-xs px-2 py-1 rounded-full bg-primary/20 text-primary">
-                          Current
-                        </span>
-                      )}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
+                      <GraduationCap className="w-6 h-6 text-accent" />
                     </div>
-                    <h3 className="font-semibold text-foreground mb-1">
-                      {edu.degree}
-                    </h3>
-                    <p className="text-sm text-muted-foreground mb-2">
-                      {edu.institution}
-                    </p>
-                    <div
-                      className={`flex items-center gap-2 text-sm text-muted-foreground ${
-                        index % 2 === 0 ? "md:justify-end" : ""
-                      }`}
-                    >
-                      <Calendar className="w-4 h-4" />
-                      {edu.period}
+                    <div>
+                      <div className="flex items-center gap-2 mb-1">
+                        <h3 className="font-semibold text-hero-text">{edu.degree}</h3>
+                        {edu.current && (
+                          <span className="text-xs px-2 py-1 rounded-full bg-accent text-white">
+                            Current
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-sm text-hero-muted">{edu.institution}</p>
                     </div>
                   </div>
+                  <div className="flex items-center gap-2 text-sm text-hero-muted bg-white px-3 py-2 rounded-lg">
+                    <Calendar className="w-4 h-4" />
+                    {edu.period}
+                  </div>
                 </div>
-
-                {/* Empty space for alternating layout */}
-                <div className="hidden md:block flex-1" />
               </div>
             ))}
           </div>
