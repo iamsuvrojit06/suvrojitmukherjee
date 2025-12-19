@@ -48,16 +48,20 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="section-padding bg-card/50">
-      <div className="container-custom">
+    <section id="contact" className="section-padding bg-hero-light relative overflow-hidden">
+      {/* Decorative Elements */}
+      <div className="absolute top-20 left-10 w-32 h-32 bg-accent/10 rounded-full blur-2xl" />
+      <div className="absolute bottom-20 right-10 w-24 h-24 bg-blue-100 rounded-full blur-xl" />
+      
+      <div className="container-custom relative z-10">
         <div className="text-center mb-12">
-          <span className="text-primary text-sm font-medium tracking-wider uppercase">
+          <span className="text-accent text-sm font-medium tracking-wider uppercase">
             Contact
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold mt-2 mb-4">
-            Let's <span className="text-gradient">Connect</span>
+          <h2 className="text-3xl sm:text-4xl font-bold mt-2 mb-4 text-hero-text">
+            Let's Connect
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-hero-muted max-w-2xl mx-auto">
             I'm always open to discussing new projects, internship opportunities, or collaborations
           </p>
         </div>
@@ -65,28 +69,28 @@ const ContactSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
           {/* Contact Info */}
           <div className="space-y-6">
-            <h3 className="text-xl font-semibold text-foreground mb-6">
+            <h3 className="text-xl font-semibold text-hero-text mb-6">
               Get in Touch
             </h3>
             <div className="space-y-4">
               {contactInfo.map((info) => (
-                <div key={info.label} className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-lg glass-card flex items-center justify-center">
-                    <info.icon className="w-5 h-5 text-primary" />
+                <div key={info.label} className="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
+                    <info.icon className="w-5 h-5 text-accent" />
                   </div>
                   <div>
-                    <p className="text-sm text-muted-foreground">{info.label}</p>
+                    <p className="text-sm text-hero-muted">{info.label}</p>
                     {info.href ? (
                       <a
                         href={info.href}
                         target={info.href.startsWith("http") ? "_blank" : undefined}
                         rel={info.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                        className="text-foreground hover:text-primary transition-colors duration-300"
+                        className="text-hero-text hover:text-accent transition-colors duration-300 font-medium"
                       >
                         {info.value}
                       </a>
                     ) : (
-                      <p className="text-foreground">{info.value}</p>
+                      <p className="text-hero-text font-medium">{info.value}</p>
                     )}
                   </div>
                 </div>
@@ -95,13 +99,13 @@ const ContactSection = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="glass-card rounded-xl p-6 md:p-8">
-            <h3 className="text-xl font-semibold text-foreground mb-6">
+          <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg">
+            <h3 className="text-xl font-semibold text-hero-text mb-6">
               Send a Message
             </h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label htmlFor="name" className="block text-sm text-muted-foreground mb-2">
+                <label htmlFor="name" className="block text-sm text-hero-muted mb-2">
                   Your Name
                 </label>
                 <input
@@ -109,13 +113,13 @@ const ContactSection = () => {
                   id="name"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-3 rounded-lg bg-secondary/50 border border-border focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all duration-300 text-foreground"
+                  className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all duration-300 text-hero-text"
                   placeholder="John Doe"
                   required
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm text-muted-foreground mb-2">
+                <label htmlFor="email" className="block text-sm text-hero-muted mb-2">
                   Your Email
                 </label>
                 <input
@@ -123,13 +127,13 @@ const ContactSection = () => {
                   id="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-3 rounded-lg bg-secondary/50 border border-border focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all duration-300 text-foreground"
+                  className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all duration-300 text-hero-text"
                   placeholder="john@example.com"
                   required
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm text-muted-foreground mb-2">
+                <label htmlFor="message" className="block text-sm text-hero-muted mb-2">
                   Message
                 </label>
                 <textarea
@@ -137,12 +141,16 @@ const ContactSection = () => {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   rows={4}
-                  className="w-full px-4 py-3 rounded-lg bg-secondary/50 border border-border focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all duration-300 text-foreground resize-none"
+                  className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all duration-300 text-hero-text resize-none"
                   placeholder="Your message here..."
                   required
                 />
               </div>
-              <Button type="submit" variant="hero" className="w-full" size="lg">
+              <Button 
+                type="submit" 
+                className="w-full bg-accent hover:bg-accent/90 text-white rounded-xl shadow-lg shadow-accent/30" 
+                size="lg"
+              >
                 <Send className="w-4 h-4 mr-2" />
                 Send Message
               </Button>

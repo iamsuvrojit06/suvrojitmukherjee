@@ -1,4 +1,4 @@
-import { Code, Network, Music, Brain } from "lucide-react";
+import { Code, Network, Music, Brain, Play } from "lucide-react";
 
 const highlights = [
   {
@@ -23,76 +23,91 @@ const highlights = [
   },
 ];
 
+const stats = [
+  { value: "5+", label: "Complete Projects" },
+  { value: "2+", label: "Years of Learning" },
+];
+
 const AboutSection = () => {
   return (
-    <section id="about" className="section-padding">
-      <div className="container-custom">
-        <div className="text-center mb-12">
-          <span className="text-primary text-sm font-medium tracking-wider uppercase">
-            About Me
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-bold mt-2 mb-4">
-            Know <span className="text-gradient">Who I Am</span>
-          </h2>
-        </div>
+    <section id="about" className="section-padding bg-white relative overflow-hidden">
+      {/* Decorative Elements */}
+      <div className="absolute top-20 left-10 w-20 h-20 bg-accent/10 rounded-full blur-xl" />
+      <div className="absolute bottom-20 right-10 w-32 h-32 bg-blue-100 rounded-full blur-2xl" />
+      
+      <div className="container-custom relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left Side - Image */}
+          <div className="relative">
+            <div className="relative">
+              {/* Yellow blob */}
+              <div className="absolute -top-6 -left-6 w-72 h-72 bg-accent rounded-blob animate-blob opacity-80" />
+              
+              {/* Profile placeholder */}
+              <div className="relative w-64 h-64 rounded-blob overflow-hidden bg-gradient-to-br from-accent/30 to-accent/50 flex items-center justify-center z-10">
+                <span className="text-6xl font-bold text-accent/60">SM</span>
+              </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* About Text */}
-          <div className="space-y-6">
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              I'm a 2nd-year{" "}
-              <span className="text-foreground font-medium">
-                BTech Computer Science & Engineering
-              </span>{" "}
-              student at Government College of Engineering and Leather
-              Technology, with a deep passion for coding and understanding how
-              systems work at their core.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              My tech journey began with a{" "}
-              <span className="text-foreground font-medium">
-                Diploma in Communication & Computer Networking (CCN)
-              </span>
-              , where I gained strong fundamentals in networks, protocols, and
-              system behavior. This foundation has shaped my approach to
-              problem-solving and software development.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              Currently, I'm expanding my skills into full-stack web development
-              with the{" "}
-              <span className="text-foreground font-medium">MERN Stack</span>,
-              while maintaining a strong focus on{" "}
-              <span className="text-foreground font-medium">
-                Data Structures & Algorithms
-              </span>{" "}
-              using C/C++ and Python.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              Beyond coding, I'm a creative individual who enjoys singing and
-              music, which has helped me develop better teamwork and
-              communication skills.
-            </p>
+              {/* Stats cards */}
+              {stats.map((stat, index) => (
+                <div
+                  key={stat.label}
+                  className={`absolute ${index === 0 ? '-right-4 top-10' : '-bottom-4 left-1/3'} bg-white rounded-xl px-4 py-3 shadow-xl z-20`}
+                >
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center">
+                      <Play className="w-3 h-3 text-accent fill-accent" />
+                    </div>
+                    <div>
+                      <span className="text-xl font-bold text-hero-text">{stat.value}</span>
+                      <p className="text-xs text-hero-muted">{stat.label}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
-          {/* Highlight Cards */}
-          <div className="grid sm:grid-cols-2 gap-4">
-            {highlights.map((item, index) => (
-              <div
-                key={item.title}
-                className="glass-card rounded-xl p-6 hover:border-primary/30 transition-all duration-300 group"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors duration-300">
-                  <item.icon className="w-6 h-6 text-primary" />
+          {/* Right Side - Content */}
+          <div>
+            <span className="text-accent text-sm font-medium tracking-wider uppercase">
+              About Me
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold mt-2 mb-6 text-hero-text">
+              Designing Solutions, Not Just Visuals
+            </h2>
+            
+            <div className="space-y-4 text-hero-muted">
+              <p>
+                I'm a 2nd-year BTech Computer Science & Engineering student at Government 
+                College of Engineering and Leather Technology, with a deep passion for 
+                coding and understanding how systems work at their core.
+              </p>
+              <p>
+                My tech journey began with a Diploma in Communication & Computer Networking (CCN), 
+                where I gained strong fundamentals in networks, protocols, and system behavior.
+              </p>
+            </div>
+
+            {/* Highlight Cards */}
+            <div className="grid grid-cols-2 gap-4 mt-8">
+              {highlights.slice(0, 2).map((item) => (
+                <div
+                  key={item.title}
+                  className="bg-gray-50 rounded-xl p-4 hover:shadow-lg transition-all duration-300 group border border-gray-100"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-3 group-hover:bg-accent/20 transition-colors duration-300">
+                    <item.icon className="w-5 h-5 text-accent" />
+                  </div>
+                  <h3 className="font-semibold text-hero-text text-sm mb-1">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-hero-muted">
+                    {item.description}
+                  </p>
                 </div>
-                <h3 className="font-semibold text-foreground mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  {item.description}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>

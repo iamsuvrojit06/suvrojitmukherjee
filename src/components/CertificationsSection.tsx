@@ -1,50 +1,72 @@
-import { Award } from "lucide-react";
+import { Award, Star } from "lucide-react";
 
-const certifications = [
+const testimonials = [
   {
     title: "Digital 101 Journey",
     issuer: "Digital Skills Program",
+    rating: 5,
   },
   {
     title: "C for Beginners",
     issuer: "Programming Fundamentals",
+    rating: 5,
   },
   {
-    title: "TCS iON Career Edge – IT for Non-IT",
+    title: "TCS iON Career Edge",
     issuer: "Tata Consultancy Services",
-  },
-  {
-    title: "Career Guidance Webinar",
-    issuer: "E-Cell IIT Hyderabad",
+    rating: 5,
   },
 ];
 
 const CertificationsSection = () => {
   return (
-    <section id="certifications" className="section-padding">
-      <div className="container-custom">
+    <section id="certifications" className="section-padding bg-white relative overflow-hidden">
+      {/* Decorative Elements */}
+      <div className="absolute top-10 right-20 opacity-20">
+        <svg width="40" height="40" viewBox="0 0 40 40">
+          <rect width="40" height="40" fill="none" stroke="currentColor" strokeWidth="2" className="text-accent" />
+        </svg>
+      </div>
+      
+      <div className="container-custom relative z-10">
         <div className="text-center mb-12">
-          <span className="text-primary text-sm font-medium tracking-wider uppercase">
-            Certifications
+          <span className="text-accent text-sm font-medium tracking-wider uppercase">
+            Testimonials
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold mt-2 mb-4">
-            Professional <span className="text-gradient">Credentials</span>
+          <h2 className="text-3xl sm:text-4xl font-bold mt-2 mb-4 text-hero-text">
+            What People Say's About Us
           </h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
-          {certifications.map((cert, index) => (
+        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {testimonials.map((cert) => (
             <div
               key={cert.title}
-              className="glass-card rounded-xl p-6 text-center hover:border-primary/30 transition-all duration-300 group hover:-translate-y-1"
+              className="bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 border border-gray-100 group"
             >
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors duration-300">
-                <Award className="w-6 h-6 text-primary" />
+              {/* Rating */}
+              <div className="flex gap-1 mb-4">
+                {[...Array(cert.rating)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 text-accent fill-accent" />
+                ))}
               </div>
-              <h3 className="font-medium text-foreground mb-2 text-sm">
-                {cert.title}
-              </h3>
-              <p className="text-xs text-muted-foreground">{cert.issuer}</p>
+              
+              <p className="text-hero-muted text-sm mb-6 leading-relaxed">
+                Successfully completed the certification program demonstrating proficiency 
+                in the subject matter and practical application of concepts learned.
+              </p>
+              
+              <div className="flex items-center gap-3 pt-4 border-t border-gray-200">
+                <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
+                  <Award className="w-5 h-5 text-accent" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-hero-text text-sm">
+                    {cert.title}
+                  </h3>
+                  <p className="text-xs text-hero-muted">{cert.issuer}</p>
+                </div>
+              </div>
             </div>
           ))}
         </div>
