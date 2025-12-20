@@ -18,8 +18,10 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 shadow-sm">
       <div className="container-custom">
         <div className="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
-          <a href="#home" className="text-xl font-bold text-hero-text">
-            Brand
+          <a href="#home" className="flex items-center gap-1">
+            <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center">
+              <span className="text-white font-bold text-lg">SM</span>
+            </div>
           </a>
 
           {/* Desktop Navigation */}
