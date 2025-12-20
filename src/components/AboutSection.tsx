@@ -1,4 +1,5 @@
 import { Code, Network, Music, Brain, Play } from "lucide-react";
+import profileImage from "@/assets/profile.jpeg";
 
 const highlights = [
   {
@@ -43,9 +44,13 @@ const AboutSection = () => {
               {/* Yellow blob */}
               <div className="absolute -top-6 -left-6 w-72 h-72 bg-accent rounded-blob animate-blob opacity-80" />
               
-              {/* Profile placeholder */}
-              <div className="relative w-64 h-64 rounded-blob overflow-hidden bg-gradient-to-br from-accent/30 to-accent/50 flex items-center justify-center z-10">
-                <span className="text-6xl font-bold text-accent/60">SM</span>
+              {/* Profile Image */}
+              <div className="relative w-64 h-64 rounded-blob overflow-hidden z-10">
+                <img 
+                  src={profileImage} 
+                  alt="Suvrojit Mukherjee" 
+                  className="w-full h-full object-cover"
+                />
               </div>
 
               {/* Stats cards */}

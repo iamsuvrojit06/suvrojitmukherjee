@@ -1,5 +1,6 @@
 import { Download, Play, Github, Linkedin } from "lucide-react";
 import { Button } from "./ui/button";
+import profileImage from "@/assets/profile.jpeg";
 
 const HeroSection = () => {
   return (
@@ -97,9 +98,13 @@ const HeroSection = () => {
               {/* Yellow blob background */}
               <div className="absolute -top-8 -right-8 w-80 h-80 sm:w-96 sm:h-96 bg-accent rounded-blob animate-blob" />
               
-              {/* Profile Image Placeholder */}
-              <div className="relative w-72 h-72 sm:w-80 sm:h-80 rounded-blob overflow-hidden bg-gradient-to-br from-accent/20 to-accent/40 flex items-center justify-center z-10">
-                <span className="text-7xl sm:text-8xl font-bold text-accent/60">SM</span>
+              {/* Profile Image */}
+              <div className="relative w-72 h-72 sm:w-80 sm:h-80 rounded-blob overflow-hidden z-10">
+                <img 
+                  src={profileImage} 
+                  alt="Suvrojit Mukherjee" 
+                  className="w-full h-full object-cover"
+                />
               </div>
 
               {/* Experience Badge */}
