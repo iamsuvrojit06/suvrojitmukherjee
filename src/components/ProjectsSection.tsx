@@ -6,8 +6,8 @@ const categories = ["All", "Web App", "Python", "Frontend"];
 
 const projects = [
   {
-    title: "Amazon Clone Website",
-    description: "Full frontend Amazon-style e-commerce UI with product listing, cart system, and authentication pages.",
+    title: "Tic Tac Toe Game",
+    description: "Interactive Tic Tac Toe game with player vs player mode, win detection, and restart functionality.",
     tech: ["HTML", "CSS", "JavaScript"],
     category: "Frontend",
     image: "/placeholder.svg",
