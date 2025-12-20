@@ -43,7 +43,7 @@ const ContactSection = () => {
       icon: Linkedin,
       label: "LinkedIn",
       value: "Suvrojit Mukherjee",
-      href: "https://linkedin.com/in/suvrojit-mukherjee",
+      href: "https://www.linkedin.com/in/suvrojitmukherjee",
     },
   ];
 
