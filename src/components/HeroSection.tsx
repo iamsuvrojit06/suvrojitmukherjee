@@ -79,7 +79,7 @@ const HeroSection = () => {
                     <Linkedin className="w-4 h-4 text-accent" />
                   </a>
                   <a
-                    href="https://github.com/suvrojitmukherjee"
+                    href="https://github.com/iamsuvrojit06"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center hover:bg-accent/20 transition-colors"
