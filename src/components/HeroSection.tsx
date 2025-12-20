@@ -37,7 +37,7 @@ const HeroSection = () => {
             </h1>
 
             <p className="text-hero-muted text-lg mb-8 max-w-md mx-auto lg:mx-0 animate-fade-up animation-delay-100">
-              BTech CSE '28 | CCN Diploma | C++ & Python Coder | DSA Enthusiast | Emerging MERN Stack Developer
+              B.Tech CSE '28 @ GCELT | CCN Diploma | C++ | Python | DSA | Aspiring MERN Stack Developer
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start animate-fade-up animation-delay-200">
