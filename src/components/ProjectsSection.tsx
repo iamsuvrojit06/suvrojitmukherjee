@@ -6,8 +6,8 @@ const categories = ["All", "Web App", "Python", "Frontend"];
 
 const projects = [
   {
-    title: "Tic Tac Toe Game",
-    description: "Interactive Tic Tac Toe game with player vs player mode, win detection, and restart functionality.",
+    title: "World Clock",
+    description: "Interactive world clock app displaying real-time across multiple time zones with clean UI.",
     tech: ["HTML", "CSS", "JavaScript"],
     category: "Frontend",
     image: "/placeholder.svg",
