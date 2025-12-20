@@ -71,7 +71,7 @@ const HeroSection = () => {
                 <span className="text-hero-muted text-sm">Connect with me</span>
                 <div className="flex -space-x-2">
                   <a
-                    href="https://linkedin.com/in/suvrojit-mukherjee"
+                    href="https://www.linkedin.com/in/suvrojitmukherjee"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center hover:bg-accent/20 transition-colors"
