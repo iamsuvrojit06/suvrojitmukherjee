@@ -108,7 +108,7 @@ const HeroSection = () => {
               </div>
 
               {/* Experience Badge */}
-              <div className="absolute -right-4 top-1/3 bg-white rounded-2xl px-4 py-3 shadow-xl z-20 animate-float">
+              <div className="absolute -left-4 bottom-1/4 bg-white rounded-2xl px-4 py-3 shadow-xl z-20 animate-float">
                 <div className="flex items-center gap-2">
                   <span className="text-3xl font-bold text-hero-text">2+</span>
                   <div className="text-xs text-hero-muted leading-tight">
