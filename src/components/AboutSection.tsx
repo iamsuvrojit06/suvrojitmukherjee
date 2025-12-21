@@ -1,5 +1,5 @@
 import { Code, Network, Music, Brain, Play } from "lucide-react";
-import profileImage from "@/assets/profile.jpeg";
+import aboutProfileImage from "@/assets/about-profile.jpeg";
 
 const highlights = [
   {
@@ -47,7 +47,7 @@ const AboutSection = () => {
               {/* Profile Image */}
               <div className="relative w-64 h-64 rounded-blob overflow-hidden z-10">
                 <img 
-                  src={profileImage} 
+                  src={aboutProfileImage} 
                   alt="Suvrojit Mukherjee" 
                   className="w-full h-full object-cover"
                 />
