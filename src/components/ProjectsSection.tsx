@@ -1,6 +1,9 @@
 import { ExternalLink, Github } from "lucide-react";
 import { Button } from "./ui/button";
 import { useState } from "react";
+import worldClockImg from "@/assets/world-clock.jpg";
+import snakeGameImg from "@/assets/snake-game.webp";
+import smartWeatherImg from "@/assets/smart-weather-app.jpg";
 
 const categories = ["All", "Web App", "Python", "Frontend"];
 
@@ -10,21 +13,22 @@ const projects = [
     description: "Interactive world clock app displaying real-time across multiple time zones with clean UI.",
     tech: ["HTML", "CSS", "JavaScript"],
     category: "Frontend",
-    image: "/placeholder.svg",
+    image: worldClockImg,
   },
   {
     title: "Snake Game",
     description: "Classic snake game with smooth controls, scoring system, and graphical enhancements using Pygame.",
     tech: ["Python", "Pygame"],
     category: "Python",
-    image: "/placeholder.svg",
+    image: snakeGameImg,
   },
   {
     title: "Smart Weather App",
     description: "Modern weather forecasting app with clean UI that displays real-time weather data and conditions.",
     tech: ["HTML", "CSS", "JavaScript", "API"],
     category: "Web App",
-    image: "/placeholder.svg",
+    image: smartWeatherImg,
+    demoLink: "https://lnkd.in/gbRt7zNE",
   },
 ];
 
@@ -75,12 +79,12 @@ const ProjectsSection = () => {
               className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 group hover:-translate-y-2"
             >
               {/* Project Image */}
-              <div className="h-48 bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-6xl font-bold text-gray-300">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                </div>
+              <div className="h-48 relative overflow-hidden">
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
                 <div className="absolute bottom-3 left-3 flex gap-2">
                   {project.tech.slice(0, 2).map((tech) => (
                     <span key={tech} className="text-xs px-2 py-1 bg-white/90 rounded-full text-hero-muted">
@@ -109,14 +113,27 @@ const ProjectsSection = () => {
                     <Github className="w-4 h-4 mr-1" />
                     Code
                   </Button>
-                  <Button 
-                    variant="ghost" 
-                    size="sm" 
-                    className="text-hero-muted hover:text-accent hover:bg-accent/10 rounded-full"
-                  >
-                    <ExternalLink className="w-4 h-4 mr-1" />
-                    Demo
-                  </Button>
+                  {project.demoLink ? (
+                    <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
+                      <Button 
+                        variant="ghost" 
+                        size="sm" 
+                        className="text-hero-muted hover:text-accent hover:bg-accent/10 rounded-full"
+                      >
+                        <ExternalLink className="w-4 h-4 mr-1" />
+                        Demo
+                      </Button>
+                    </a>
+                  ) : (
+                    <Button 
+                      variant="ghost" 
+                      size="sm" 
+                      className="text-hero-muted hover:text-accent hover:bg-accent/10 rounded-full"
+                    >
+                      <ExternalLink className="w-4 h-4 mr-1" />
+                      Demo
+                    </Button>
+                  )}
                 </div>
               </div>
             </div>
